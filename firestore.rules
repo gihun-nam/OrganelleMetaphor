@@ -1,0 +1,84 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ──────────────────────────────────────────────────────────────
+    //  헬퍼
+    // ──────────────────────────────────────────────────────────────
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    // 0 < 길이 <= max 인 문자열인지 검사
+    function isStr(v, max) {
+      return v is string && v.size() > 0 && v.size() <= max;
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    //  schools : 학교/학급 레지스트리
+    //  - 학생/교사 로그인과 학교 개설은 "Firebase Auth 인증 이전"에 일어나므로
+    //    read / create 는 허용하되, 페이로드 검증으로 과대·비정상 문서 주입을 차단한다.
+    //  - 수정(update)·삭제(delete)는 인증된 사용자만 가능 → PIN 탈취/무단 삭제 방지.
+    //  ※ 한계: 클라이언트 측 로그인 구조상 schools 문서 자체는 읽기 허용이 필요하다.
+    //     비밀번호 필드까지 완전히 가리려면 로그인을 서버리스 함수(Admin SDK)로 옮겨야 한다.
+    // ──────────────────────────────────────────────────────────────
+    match /schools/{schoolId} {
+      allow read: if true;
+      allow create: if isStr(request.resource.data.schoolName, 100)
+                    && isStr(request.resource.data.teacherPin, 64)
+                    && isStr(request.resource.data.studentPassword, 64)
+                    && request.resource.data.normalizedSchoolName is string
+                    && request.resource.data.normalizedSchoolName.size() <= 100;
+      allow update: if isSignedIn()
+                    && isStr(request.resource.data.schoolName, 100);
+      allow delete: if isSignedIn();
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    //  submissions : 학생 비유 제출물
+    //  - 읽기는 동료평가 피드 노출을 위해 허용.
+    //  - 쓰기는 로그인(인증) 필수 + 본문 길이 제한으로 junk/과대 주입 차단.
+    // ──────────────────────────────────────────────────────────────
+    function validSubmission() {
+      return request.resource.data.metaphorSubject is string
+             && request.resource.data.metaphorSubject.size() <= 200
+             && request.resource.data.metaphorReason is string
+             && request.resource.data.metaphorReason.size() <= 2000;
+    }
+
+    // 부모(phantom 방지) 문서: submissions/{schoolId}
+    match /submissions/{schoolId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    // 실제 제출물: submissions/{schoolId}/{classId}/{docId}
+    match /submissions/{schoolId}/{classId}/{docId} {
+      allow read: if true;
+      allow create, update: if isSignedIn() && validSubmission();
+      allow delete: if isSignedIn();
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    //  submission_checks : AI 안전성 검사 결과
+    // ──────────────────────────────────────────────────────────────
+    match /submission_checks/{schoolId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    match /submission_checks/{schoolId}/{classId}/{docId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    //  users : 학생/교사 프로필 (인증 사용자 전용)
+    // ──────────────────────────────────────────────────────────────
+    match /users/{schoolId} {
+      allow read, write: if isSignedIn();
+    }
+    match /users/{schoolId}/{classId}/{uid} {
+      allow read, write: if isSignedIn();
+    }
+
+    // 그 외 모든 경로는 기본 거부 (예: 삭제된 test 진단 컬렉션)
+  }
+}

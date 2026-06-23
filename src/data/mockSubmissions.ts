@@ -1,0 +1,177 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { MetaphorSubmission } from '../types';
+
+export const MOCK_SUBMISSIONS: MetaphorSubmission[] = [
+  {
+    id: 'mock-1',
+    studentName: '김지민',
+    studentClass: '1반',
+    organelleId: 'mitochondria',
+    organelleName: '마이토콘드리아',
+    metaphorSubject: '도시의 거대 발전소',
+    metaphorReason: '매일 전기를 공급해서 가로등과 공장을 돌리듯, 우리가 밥을 먹은 뒤 얻은 영양소로 하루 종일 공부하고 뛸 수 있는 에너지(ATP)를 열심히 돌려주기',
+    ratings: { '이은우': 5, '최민우': 4 },
+    averageRating: 4.5,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:30:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-2',
+    studentName: '이은우',
+    studentClass: '1반',
+    organelleId: 'nucleus',
+    organelleName: '핵',
+    metaphorSubject: '스마트폰의 메인 CPU',
+    metaphorReason: '스마트폰의 주 전원 and 모든 앱 구동을 연산하고 시스템 설정을 제어하는 칩셋처럼, 세포가 어떤 단백질을 만들고 어떻게 살아갈지 담긴 핵심 설계도(DNA)를 관리하고 통제하기',
+    ratings: { '김지민': 4, '최민우': 4 },
+    averageRating: 4.0,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:32:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-3',
+    studentName: '최민우',
+    studentClass: '1반',
+    organelleId: 'membrane',
+    organelleName: '세포막',
+    metaphorSubject: '콘서트장의 VIP 검표 안전 요원',
+    metaphorReason: '허가된 입장 티켓(선택적 친화 물질)을 손에 꼭 쥔 행인만 입구를 열어 기쁘게 통과시키고, 티켓이 없거나 위험한 물건은 게이트 밖으로 정중하게 밀쳐내기',
+    ratings: { '김지민': 4, '이은우': 5 },
+    averageRating: 4.5,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:50:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-4',
+    studentName: '최서연',
+    studentClass: '2반',
+    organelleId: 'chloroplast',
+    organelleName: '엽록체',
+    metaphorSubject: '친환경 햇빛 탄소 제로 제빵점',
+    metaphorReason: '아무것도 없는 들판에서 태양빛 온기만을 충전 받아 밀가루 없이도 달콤하고 맛있는 영양식인 포도당 빵을 부지런히 구워내 이웃 식물 가구들을 먹여 살려주기',
+    ratings: { '정예은': 5, '정지훈': 5 },
+    averageRating: 5.0,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:35:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-5',
+    studentName: '정예은',
+    studentClass: '2반',
+    organelleId: 'golgi',
+    organelleName: '골지체',
+    metaphorSubject: '아마존 자동 분류 물류 센터',
+    metaphorReason: '가공 라인에서 전송 완료된 여러 물건들을 받아 스캔 분류하고, 충격 방지 비닐 뽁뽁이 소낭에 꼼꼼히 싸서 필요에 따라 해외 직구 박스로 배송 출발시키기',
+    ratings: { '최서연': 5, '정지훈': 4 },
+    averageRating: 4.5,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:38:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-6',
+    studentName: '정지훈',
+    studentClass: '2반',
+    organelleId: 'er',
+    organelleName: '소포체',
+    metaphorSubject: '고속도로 휴게소 배송 인터체인지',
+    metaphorReason: '리보솜 공장에서 갓 실어 보낸 온갖 영양 가득한 단백질 박스들을 싣고 막힘 없이 미로 같은 고속도로를 시원하게 달려 골지체 터미널이나 필요한 곳으로 칼같이 순환 배송해주기',
+    ratings: { '최서연': 4, '정예은': 4 },
+    averageRating: 4.0,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:39:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-7',
+    studentName: '박수연',
+    studentClass: '3반',
+    organelleId: 'ribosome',
+    organelleName: '리보솜',
+    metaphorSubject: '인텔리전트 3D 프린터',
+    metaphorReason: '디지털 설계 도면 데이터(mRNA 레시피)만 로딩해 주면 레고 블록 같은 아미노산 필라멘트를 차곡차곡 녹여 붙여 완벽한 단백질 모형을 순식간에 구현해 내기',
+    ratings: { '강민호': 4, '한아름': 5 },
+    averageRating: 4.5,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:40:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-8',
+    studentName: '강민호',
+    studentClass: '3반',
+    organelleId: 'mitochondria',
+    organelleName: '마이토콘드리아',
+    metaphorSubject: '스마트폰 보조 배터리',
+    metaphorReason: '충전 케이블을 꽂는 순간 생명이 유지되어 화면이 밝아지듯이, 세포 속에 영양소 and 산소 전원을 주입해 주면 쉴 새 없이 동력을 뿜어내는 가성비 만점 충전소이기',
+    ratings: { '박수연': 5, '한아름': 4 },
+    averageRating: 4.5,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:42:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-9',
+    studentName: '한아름',
+    studentClass: '3반',
+    organelleId: 'wall',
+    organelleName: '세포벽',
+    metaphorSubject: '든든하게 버티는 대형 텐트의 철제 기둥',
+    metaphorReason: '강바람이나 태풍이 세차게 불어와도 끄떡없이 모양을 꼿꼿하게 지탱하고 유지해서, 뼈대가 부드러운 식물의 형태가 무너지지 않도록 막강한 바깥 경계를 제공해주기',
+    ratings: { '박수연': 4, '강민호': 4 },
+    averageRating: 4.0,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:43:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-10',
+    studentName: '윤지우',
+    studentClass: '4반',
+    organelleId: 'wall',
+    organelleName: '세포벽',
+    metaphorSubject: '기사들이 입는 강철 갑옷',
+    metaphorReason: '외부에서 날아오는 칼과 화살을 단단하게 다 튕겨내고, 뼈대가 부드러운 식물의 성벽이 우뚝 서서 부러지지 않도록 곧은 철골 자세를 잡아 보호해주기',
+    ratings: { '한다인': 5, '서태웅': 5 },
+    averageRating: 5.0,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:45:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-11',
+    studentName: '한다인',
+    studentClass: '4반',
+    organelleId: 'vacuole',
+    organelleName: '액포',
+    metaphorSubject: '시골 풍년용 농가 물탱크',
+    metaphorReason: '비가 올 때 여분의 깨끗한 수자원을 모조리 가두어 두었다가, 가뭄이 오면 수분을 세포 내에 점진적으로 흘려보내 시들지 않게 삼투압을 균일하게 조절해주기',
+    ratings: { '윤지우': 4, '서태웅': 4 },
+    averageRating: 4.0,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:48:00Z',
+    isMock: true
+  },
+  {
+    id: 'mock-12',
+    studentName: '서태웅',
+    studentClass: '4반',
+    organelleId: 'nucleus',
+    organelleName: '핵',
+    metaphorSubject: '거대 스마트 시티 총괄 관제사',
+    metaphorReason: '중앙 지휘 본부에 앉아 귀중한 마스터 설계도(DNA)를 보면서 어느 타이밍에 물건을 수송하고 어떻게 생명을 지탱해야 할지 일일이 명령어를 생성하여 통제해주기',
+    ratings: { '윤지우': 4, '한다인': 5 },
+    averageRating: 4.5,
+    ratingCount: 2,
+    timestamp: '2026-05-20T05:49:00Z',
+    isMock: true
+  }
+];
