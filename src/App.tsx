@@ -873,7 +873,7 @@ export default function App() {
             <section className="glass-card p-6 md:p-8" id="learning-checkpoint-footer-card">
               <h3 className="font-sans font-black text-[#123D2A] text-base mb-4 flex items-center gap-2 break-keep">
                 <BookOpen className="w-5 h-5 text-[#123D2A]" />
-                이 단원 핵심 성취기준 체크포인트 (통합과학 Level)
+                이 단원 핵심 성취기준 체크포인트 (일반생물학 Level)
               </h3>
               <ul className="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs text-[#3E4540]/95" id="checkpoint-bullets">
                 <li className="bg-[#FFFCF4]/45 backdrop-blur-sm p-4 rounded-2xl shadow-xs hover:scale-[1.01] transition-all break-keep">
@@ -1048,7 +1048,7 @@ export default function App() {
       )}
 
       {/* Classroom Footer */}
-      <footer className="bg-[#1c3829] text-white py-8 text-center text-xs font-semibold border-none" id="classroom-footer">
+      <footer className="bg-[#1c3829] text-white py-8 text-center text-xs font-semibold border-none" id="classroom-footer break-keep">
         <p>© 2026 서강대학교 생명과환경 세포소기관 배움터. All Rights Reserved. (서강대학교 생명과학과)</p>
       </footer>
       </div>
