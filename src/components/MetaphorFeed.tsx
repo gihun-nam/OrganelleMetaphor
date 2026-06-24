@@ -169,7 +169,7 @@ export const MetaphorFeed: React.FC<MetaphorFeedProps> = ({
               <span>📚 동료 비유 평가 5점 별점 기준 (채점 루브릭)</span>
             </div>
             <div className="flex items-center gap-1.5 text-[10px] text-[#7B827B]">
-              <span>{isRubricOpen ? "접기" : "전체기준 보기"}</span>
+              <span>{isRubricOpen ? "접기" : "열기"}</span>
               {isRubricOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
             </div>
           </button>
