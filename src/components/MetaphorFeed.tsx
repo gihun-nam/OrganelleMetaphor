@@ -177,11 +177,11 @@ export const MetaphorFeed: React.FC<MetaphorFeedProps> = ({
           {isRubricOpen && (
             <div className="mt-2 grid grid-cols-1 sm:grid-cols-5 gap-1.5 pt-2 border-t border-dashed border-[#D7D2C4]" id="peer-rubric-content">
               {[
-                { score: 5, label: "5점 (기발함)", desc: "소기관 구조·기능의 과학적 이해가 기발하고 완벽하게 대칭됨." },
-                { score: 4, label: "4점 (명확함)", desc: "비교 대상의 공통점이 합리적이고 핵심 기능이 잘 전달됨." },
-                { score: 3, label: "3점 (보통)", desc: "단순 연관성은 있으나 설명 완성도가 아쉽거나 보통 수준임." },
-                { score: 2, label: "2점 (부족)", desc: "비유가 직관적이지 않거나 과학적 오개념이 다소 섞여있음." },
-                { score: 1, label: "1점 (단순대치)", desc: "비유의 연결이 자연스럽지 않고 과학적 설명 근거가 부족함." }
+                { score: 5, label: "5점 (뛰어남)", desc: "세포소기관 구조와 기능의 과학적 이해가 완벽하고 비유가 독창적임." },
+                { score: 4, label: "4점 (명확함)", desc: "비유 대상의 특성이 잘 드러나며 핵심 기능이 잘 전달됨." },
+                { score: 3, label: "3점 (보통)", desc: "비유의 연관성은 있으나 개념과 설명의 완성도가 보통 수준임." },
+                { score: 2, label: "2점 (부족)", desc: "비유가 직관적이지 않거나 과학적 설명 근거가 부족함." },
+                { score: 1, label: "1점 (아쉬움)", desc: "비유의 연결이 자연스럽지 않고 과학적 오개념이 다소 있음." }
               ].map((item) => (
                 <div 
                   key={item.score} 
@@ -454,7 +454,7 @@ export const MetaphorFeed: React.FC<MetaphorFeedProps> = ({
           <p className="text-xs text-[#7B827B] max-w-sm mx-auto">
             {selectedOrganelleFilter === 'all' 
               ? '아직 아무도 비유를 작성하지 않았어요! 첫 번째로 나만의 참신한 생각을 공유해 보실래요?'
-              : '이 세포소기관에 대해 비유를 작성한 모둠 친구가 아직 없어요. 내가 먼저 등재해 보세요!'}
+              : '이 세포소기관에 대해 비유를 작성한 학급 친구가 아직 없어요. 내가 먼저 업로드해 보세요!'}
           </p>
           {selectedOrganelleFilter !== 'all' && (
             <button
