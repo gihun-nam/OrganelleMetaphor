@@ -245,7 +245,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
   };
 
   const handleDeleteSchool = async (school: FirestoreSchool) => {
-    if (confirm(`⚠️ [경고] 정말로 '${school.schoolName}' 배움터(학교) 공간을 삭제하시겠습니까?\n이 작업은 복구할 수 없으며 학생들의 모든 비유물 데이터도 삭제될 수 있습니다.`)) {
+    if (confirm(`⚠️ [경고] 정말로 '${school.schoolName}' 배움터(학교) 공간을 삭제하시겠습니까?\n이 작업은 복구할 수 없으며 학생들의 모든 제출 데이터도 삭제될 수 있습니다.`)) {
       try {
         await deleteSchoolRecord(school.schoolName);
         alert(`🎉 '${school.schoolName}' 배움터 삭제가 정상적으로 완료되었습니다.`);
@@ -587,7 +587,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
           '', // timerStartAt
           schoolData?.timerDuration || (selectedMinutes * 60) // timerDuration
         );
-        alert("원격 일괄 마감 처리가 완료되었습니다.\n학생들 화면에 제한시간 마감 안내 팝업이 표출되며 교정용 작성란이 닫히고, 친구들 비유 별점 평가 모드로 일제히 즉시 자동 전환됩니다!");
+        alert("원격 일괄 마감 처리가 완료되었습니다.\n학생들 화면에 제한시간 마감 안내 팝업이 표출되며 교정용 작성란이 닫히고, 친구들 비유 별점 평가 모드로 즉시 자동 전환됩니다!");
       } catch (err: any) {
         console.error('Stop error:', err);
       }
@@ -889,7 +889,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
 
   // 4b. Handle Leaving School Classroom (Log out of active school name context)
   const handleLeaveSchool = () => {
-    if (confirm('현재 배움터 교실(학교) 연동에서 완전히 퇴장하시겠습니까?\n등록된 정보는 별도 드라이브에 안전하게 보관되어 보존됩니다.')) {
+    if (confirm('현재 배움터 교실(학교)에서 로그아웃하시겠습니까?\n등록된 정보는 별도 데이터베이스에 저장됩니다.')) {
       localStorage.removeItem('cell_teacher_school');
       localStorage.removeItem('cell_teacher_pin');
       localStorage.removeItem('cell_student_login_password');
@@ -1196,7 +1196,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
               <input
                 type="text"
                 required
-                placeholder="예: 서울고등학교, 서강고등학교"
+                placeholder="예: 서강대학교, 서울고등학교"
                 value={setupSchoolInput}
                 onChange={(e) => setSetupSchoolInput(e.target.value)}
                 className="w-full px-4 py-2.5 text-xs bg-white/85 border border-[#D7D2C4] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1B5A3A] font-normal"
@@ -1297,7 +1297,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
               className="w-full py-3 bg-[#123D2A] hover:bg-[#1B5A3A] text-white rounded-xl text-xs font-black shadow-md border border-[#D7D2C4] cursor-pointer flex items-center justify-center gap-2 hover:scale-[1.01] transition-transform break-keep"
             >
               <ShieldCheck className="w-4 h-4" />
-              교수자 활동 관리창 로그인
+              교수자용 활동 관리창 로그인
             </button>
           </form>
         )}
@@ -1322,10 +1322,10 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
             {schoolName} 생명과환경 관리창
           </span>
           <h3 className="font-sans font-black text-[#123D2A] text-base sm:text-lg break-keep leading-snug">
-            교수자 학급별 비유 활동 관리창 잠금
+            교수자용 학급별 비유 활동 관리창 잠금
           </h3>
           <p className="text-[11px] sm:text-xs text-[#7B827B] font-medium max-w-xs mx-auto break-keep leading-relaxed text-center">
-            본 화면은 교수자 전용 분석 콘솔입니다. 설정하신 4자리 보안 비밀번호를 입력해 해제하십시오.
+            본 화면은 교수자용 관리창입니다. 설정하신 4자리 보안 비밀번호를 입력해 해제하십시오.
           </p>
         </div>
 
@@ -1378,7 +1378,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                 <ShieldAlert className="w-10 h-10 text-rose-500 mx-auto" />
                 <h4 className="font-sans font-black text-rose-950 text-sm sm:text-base break-keep">교수자용 보안 자격 초기화</h4>
                 <p className="text-[11px] text-rose-700 font-bold leading-relaxed break-keep">
-                  본 기기에 등록되어 있는 학교 이름('{schoolName}') 및 4자리 행동 통제용 비밀번호를 변경하거나 완전히 리셋합니다.
+                  본 기기에 등록되어 있는 학교 이름('{schoolName}') 및 4자리 교수자용 비밀번호를 변경하거나 완전히 리셋합니다.
                 </p>
               </div>
 
@@ -1623,7 +1623,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
           <button
             onClick={handleGeneralLogout}
             className="px-3 py-1.5 bg-[#FFFCF4]/60 hover:bg-[#DDE8D6] text-[#3E4540] hover:text-[#123D2A] text-xs font-bold rounded-xl shadow-xs transition-all cursor-pointer flex items-center gap-1 text-[11px] border border-[#D7D2C4]"
-            title="소속 학교 설정을 유지하되 교사 제어창을 즉시 잠급니다"
+            title="소속 학교 설정을 유지하되 교수자용 관리창을 즉시 잠급니다"
           >
             <Lock className="w-3.5 h-3.5" />
             일반 로그아웃
@@ -1633,7 +1633,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
           <button
             onClick={handleLeaveSchool}
             className="px-3 py-1.5 bg-[#F1D88A]/20 hover:bg-[#F1D88A]/50 text-[#D6A21E] hover:text-[#123D2A] text-xs font-bold rounded-xl shadow-xs transition-all cursor-pointer flex items-center gap-1 text-[11px] border border-[#D7D2C4]"
-            title="현재 연동된 학교 및 교실 권한에서 명시적으로 퇴장합니다 (등록 데이터는 디바이스 저장소에 유지됨)"
+            title="현재 연동된 학교 및 교실 권한에서 로그아웃합니다 (등록 데이터는 데이터베이스에 유지됩니다)"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             교실 로그아웃
@@ -1643,7 +1643,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
           <button
             onClick={() => setDeleteSchoolModalOpen(true)}
             className="px-3 py-1.5 bg-rose-50 border border-rose-200 text-rose-700 hover:bg-rose-100 text-xs font-bold rounded-xl shadow-xs transition-all cursor-pointer flex items-center gap-1 text-[11px]"
-            title="본 기기에서 이 학급의 모든 개설 정보와 분리 디바이스 저장소 데이터를 영구히 소거합니다"
+            title="본 기기에서 이 학급의 모든 개설 정보와 분리 디바이스 저장소 데이터를 영구히 초기화합니다"
           >
             <Trash2 className="w-3.5 h-3.5" />
             전체 삭제
@@ -2031,7 +2031,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                       {selectedStudentForAudit} 학생이 동료들에게 준 별점 내역
                     </h3>
                     <p className="text-[10px] text-[#1B5A3A] font-bold mt-1">
-                      이 지표는 학생들의 수업 참여 진정성, 상호평가 성실성, 피드백 기여도를 나타냅니다. (학생 평가 보조 자료)
+                      이 지표는 학생들의 비유 작성 활동 참여도, 동료평가 참여도 및 신뢰도를 보여줍니다. (학생 평가 보조 자료)
                     </p>
                   </div>
 
@@ -2122,12 +2122,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                   {selectedSubDetail.studentName} 학생의 세포소기관 비유 전문
                 </h3>
               </div>
-              <button
-                onClick={() => setSelectedSubmissionId(null)}
-                className="text-info-blue-deep/70 hover:text-info-blue-deep font-bold cursor-pointer transition-colors text-xs"
-              >
-                ✕ 닫기
-              </button>
+              
             </div>
 
             <div className="space-y-4">
@@ -2226,7 +2221,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                 onClick={() => setSelectedSubmissionId(null)}
                 className="px-5 py-2.5 bg-info-blue-deep hover:bg-info-blue text-white text-xs font-bold rounded-xl shadow-xs cursor-pointer transition-all animate-none"
               >
-                열람 창 닫기
+                닫기
               </button>
             </div>
           </div>
@@ -2241,7 +2236,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
               <ShieldAlert className="w-10 h-10 text-warning-red-deep mx-auto" />
               <h4 className="font-sans font-black text-warning-red-deep text-base">교사용 보안 자격 완전 초기화</h4>
               <p className="text-[11px] text-warning-red-deep/90 font-bold leading-relaxed text-center">
-                기기에 등록되어 있는 학교 이름('{schoolName}') 및 4자리 행동 통제용 비밀번호를 변경하거나 완전히 리셋합니다. 진행을 위해서 비밀번호를 다시 확인합니다.
+                기기에 등록되어 있는 학교 이름('{schoolName}') 및 4자리 교수자용 비밀번호를 변경하거나 완전히 리셋합니다. 진행을 위해서 비밀번호를 다시 확인합니다.
               </p>
             </div>
 
@@ -2351,13 +2346,13 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
               <ShieldAlert className="w-10 h-10 text-warning-red-deep mx-auto" />
               <h4 className="font-sans font-black text-warning-red-deep text-base">배움터 학교 계정 및 보관소 영구 삭제</h4>
               <p className="text-[11px] text-warning-red-deep/90 font-bold leading-relaxed text-center">
-                개설된 학교('{schoolName}')와 비밀번호 자격, 분리 디바이스 저장소(드라이브) 및 모든 학생 제출 목록이 영구 폐기됩니다. 이 작업은 즉시 취소할 수 없습니다.
+                개설된 학교('{schoolName}')와 비밀번호 자격, 분리 디바이스 저장소(드라이브) 및 모든 학생 제출 목록이 영구 삭제됩니다. 이 작업은 즉시 취소할 수 없습니다.
               </p>
             </div>
 
             <form onSubmit={handleDeleteSchoolSubmit} className="space-y-3">
               <div className="space-y-1">
-                <label className="block text-[10px] font-black text-warning-red-deep/95">교사용 비밀번호 4자리 입력</label>
+                <label className="block text-[10px] font-black text-warning-red-deep/95">교수자용 비밀번호 4자리 입력</label>
                 <input
                   type="password"
                   maxLength={4}
@@ -2406,7 +2401,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
               <Settings className="w-10 h-10 text-[#123D2A] mx-auto" />
               <h4 className="font-sans font-black text-[#123D2A] text-base">교사용 관리 비밀번호 PIN 변경</h4>
               <p className="text-[11px] text-[#7B827B] font-bold leading-relaxed text-center">
-                현재 연동 중인 배움터의 교사용 제어 비밀번호 PIN(4자리 숫자)을 변경합니다.
+                현재 연동 중인 배움터의 교수자용 비밀번호 PIN(4자리 숫자)을 변경합니다.
               </p>
             </div>
 
