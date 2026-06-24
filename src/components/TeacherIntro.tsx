@@ -38,7 +38,7 @@ export const TeacherIntro: React.FC<TeacherIntroProps> = ({ schoolName: propScho
               "반가워요, {schoolName} 생명과환경 수강생 여러분! 👋"
             </p>
             <p className="space-y-2 break-keep">
-              우리 몸과 식물을 구성하는 아주 작은 단위인 <strong>세포(Cell)</strong> 속에는 각자의 역할을 맡아 바쁘게 일하는 <strong>세포소기관</strong>들이 살고 있어요.
+              우리 몸과 식물을 구성하는 아주 작은 단위인 <strong>세포(Cell)</strong> 속에는 각자의 역할을 맡아 바쁘게 일하는 <strong>세포소기관(Organelle)</strong>들이 살고 있어요.
             </p>
             <p className="mt-2 text-[#3E4540] font-normal break-keep">
               이 친구들이 어떤 모양을 하고 있고 어떤 중요한 기능을 담당하는지, 먼저 아래 사전에서 공부해 본 뒤 <strong>나만의 창의적인 비유</strong>를 만들어 친구들과 서로 평가해 볼까요?
