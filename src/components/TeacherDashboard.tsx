@@ -2012,7 +2012,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                   );
                 })
               ) : (
-                <div className="text-center py-10 text-[#7B827B] text-xs font-medium border border-dashed border-[#D7D2C4] rounded-xl">
+                <div className="text-center py-10 text-[#7B827B] text-xs font-medium">
                   등록되거나 활동 중인 학생 정보가 존재하지 않습니다.
                 </div>
               )}
