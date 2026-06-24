@@ -127,10 +127,10 @@ export const MetaphorFeed: React.FC<MetaphorFeedProps> = ({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b-2 border-[#D7D2C4]/50" id="feed-header-row">
         <div>
           <h2 className="font-sans font-black text-[#123D2A] text-2xl tracking-tight flex items-center gap-2">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#DDE8D6] text-[#123D2A] text-sm font-black">02</span>
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#DDE8D6] text-[#123D2A] text-sm font-black break-keep">02</span>
             {activeStudentClass ? `[${activeStudentClass}]` : "우리 반"} 모두의 세포 배움터 (실시간 상호 평가 피드)
           </h2>
-          <p className="text-xs text-[#7B827B] mt-1">
+          <p className="text-xs text-[#7B827B] mt-1 break-keep">
             우리 반 친구들이 등록한 세포소기관 비유 글을 꼼꼼히 읽어보고, 참신함과 과학적 설득력을 따져 5점 만점의 별점을 주세요!
           </p>
         </div>
@@ -165,8 +165,8 @@ export const MetaphorFeed: React.FC<MetaphorFeedProps> = ({
             id="peer-rubric-trigger"
           >
             <div className="flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-[#123D2A]" />
-              <span>📚 동료 비유 평가 5점 별점 기준 (채점 루브릭)</span>
+              <BookOpen className="w-4 h-4 text-[#123D2A] break-keep" />
+              <span>📚 동료평가 별점 기준 (채점 루브릭)</span>
             </div>
             <div className="flex items-center gap-1.5 text-[10px] text-[#7B827B]">
               <span>{isRubricOpen ? "접기" : "열기"}</span>
