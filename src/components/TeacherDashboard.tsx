@@ -1084,7 +1084,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.setAttribute('href', url);
-    link.setAttribute('download', `[${schoolName}]_교수님_세포비유활동_${selectedClassFilter === 'all' ? '전체학급' : selectedClassFilter}.csv`);
+    link.setAttribute('download', `[${schoolName}]세포소기관비유활동_${selectedClassFilter === 'all' ? '전체학급' : selectedClassFilter}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -1376,9 +1376,9 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
             <div className="bg-[#FFFCF4] rounded-3xl p-5 sm:p-6 max-w-sm w-full border border-[#D7D2C4] shadow-2xl space-y-4">
               <div className="text-center space-y-1.5">
                 <ShieldAlert className="w-10 h-10 text-rose-500 mx-auto" />
-                <h4 className="font-sans font-black text-rose-950 text-sm sm:text-base break-keep">교수자용 보안 자격 초기화</h4>
+                <h4 className="font-sans font-black text-rose-950 text-sm sm:text-base break-keep">교수자용 관리창 로그인 초기화</h4>
                 <p className="text-[11px] text-rose-700 font-bold leading-relaxed break-keep">
-                  본 기기에 등록되어 있는 학교 이름('{schoolName}') 및 4자리 교수자용 비밀번호를 변경하거나 완전히 리셋합니다.
+                  본 기기에 등록되어 있는 학교 이름('{schoolName}') 및 4자리 교수자용 비밀번호를 변경하거나 완전히 초기화합니다.
                 </p>
               </div>
 
@@ -1463,7 +1463,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#DDE8D6] text-[#123D2A] text-sm font-black">⚙️</span>
             교사용 학급별 비유 활동 관리창
           </h2>
-          <p className="text-xs text-[#7B827B] mt-1 font-medium">
+          <p className="text-xs text-[#7B827B] mt-1 font-medium break-keep">
             각 학급 학생들의 실시간 생명 시스템 비유 활동 내역을 상세 조회하고, CSV파일로 다운로드하여 활동 평가 자료로 활용하세요.
           </p>
         </div>
@@ -1562,7 +1562,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                   <button
                     onClick={handleTeacherPauseTimer}
                     className="p-1 hover:bg-[#DDE8D6] rounded text-amber-600 transition-colors cursor-pointer flex items-center justify-center border border-[#D7D2C4]"
-                    title="타이머 일시정지 (학생들 화면도 일시 중단)"
+                    title="타이머 일시정지 (학생들 화면에서도 적용)"
                   >
                     <Pause className="w-4 h-4 fill-[#D6A21E] stroke-[#D6A21E]" />
                   </button>
@@ -1570,7 +1570,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                   <button
                     onClick={handleTeacherPlayTimer}
                     className="p-1 hover:bg-[#DDE8D6] rounded text-[#123D2A] transition-colors cursor-pointer flex items-center justify-center border border-[#D7D2C4] scale-105"
-                    title="타이머 시작/재개 (학생들 화면도 즉시 러닝)"
+                    title="타이머 시작/재개 (학생들 화면도 즉시 재개)"
                   >
                     <Play className="w-4 h-4 fill-[#123D2A] stroke-[#123D2A]" />
                   </button>
