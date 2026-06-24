@@ -671,10 +671,15 @@ export default function App() {
     }, 800);
   };
 
-  const getLoggedInStudentsCount = (): number => {
+    const getLoggedInStudentsCount = (): number => {
     if (!activeSubscribedSchool) return 0;
+    // 학생 활동 화면에서는 로그인한 학급의 제출물만 집계 (교수자 화면은 학교 전체)
+    const scopedSubmissions =
+      viewMode === 'student' && studentClass
+        ? submissions.filter((s) => s.studentClass === studentClass)
+        : submissions;
     const uniqueSubmitters = new Set(
-      submissions.map((s) => {
+      scopedSubmissions.map((s) => {
         if (s.isMock || !s.ownerUid) {
           return `${s.studentClass || '1반'}_${s.studentName.trim().toLowerCase()}`;
         }
@@ -684,8 +689,15 @@ export default function App() {
     return uniqueSubmitters.size;
   };
 
-  const totalStudentsCount = getLoggedInStudentsCount();
-  const topSubmission = [...submissions].sort((a, b) => {
+    const totalStudentsCount = getLoggedInStudentsCount();
+
+  // 헤더 "최고인기비유": 학생 활동 화면에서는 로그인한 학급의 제출물만 대상으로 한다.
+  // (교수자 화면에서는 학교 전체 기준을 그대로 사용)
+  const headerScopedSubmissions =
+    viewMode === 'student' && studentClass
+      ? submissions.filter((s) => s.studentClass === studentClass)
+      : submissions;
+  const topSubmission = [...headerScopedSubmissions].sort((a, b) => {
     const scoreA = Math.round(a.averageRating * 10) / 10;
     const scoreB = Math.round(b.averageRating * 10) / 10;
     if (scoreB !== scoreA) {
@@ -1048,7 +1060,7 @@ export default function App() {
       )}
 
       {/* Classroom Footer */}
-      <footer className="bg-[#1c3829] text-white py-8 text-center text-xs font-semibold border-none" id="classroom-footer break-keep">
+      <footer className="bg-[#1c3829] text-white py-8 text-center text-xs font-semibold border-none break-keep" id="classroom-footer">
         <p>© 2026 서강대학교 생명과환경 세포소기관 배움터. All Rights Reserved. (서강대학교 생명과학과)</p>
       </footer>
       </div>
