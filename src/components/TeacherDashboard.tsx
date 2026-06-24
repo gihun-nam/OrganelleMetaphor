@@ -1151,7 +1151,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
           <h2 className="font-sans font-black text-[#123D2A] text-lg sm:text-[22px] tracking-tight leading-snug break-keep">
             생명과환경 교수자용 관리창 로그인
           </h2>
-          <p className="text-[11px] sm:text-xs text-[#7B827B] font-normal max-w-md mx-auto leading-relaxed break-keep">
+          <p className="text-[11px] sm:text-xs text-[#7B827B] font-medium max-w-md mx-auto leading-relaxed break-keep">
             학교와 학급을 개설 및 관리하고, 개별 학생들이 제출한 비유와 동료평가 내역을 실시간으로 확인할 수 있습니다.
           </p>
         </div>
@@ -1970,7 +1970,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                 <Users className="w-3.5 h-3.5" />
                 학급 참여 학생 명단 ({(selectedClassFilter === 'all' ? uniqueStudentProfiles : uniqueStudentProfiles.filter(p => p.class === selectedClassFilter)).length}명)
               </h3>
-              <p className="text-[10px] text-[#7B827B] leading-normal font-bold">
+              <p className="text-[10px] text-[#7B827B] leading-normal font-medium break-keep">
                 학생 이름을 선택하여 해당 학생이 동료들의 비유 글에 매긴 별점을 확인할 수 있습니다.
               </p>
             </div>
