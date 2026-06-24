@@ -279,8 +279,10 @@ export async function createSubmission(
   const personalPassword = submissionData.studentPassword || '1234';
   const organelleId = (submissionData.organelleId || '').trim();
   
-  // Create a unique flat document name to prevent namespace conflict while preserving standard format
-  const individualFolderDocId = `${cleanSchool}_${cleanClass}_${cleanName}_${personalPassword}_${organelleId}`;
+    // 각 제출을 고유 문서로 저장한다 (타임스탬프 + 랜덤 suffix).
+  // → 같은 학생이 같은 소기관을 다시 제출해도 덮어쓰지 않고 기존 제출물이 그대로 보존된다.
+  const uniqueSuffix = `${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
+  const individualFolderDocId = `${cleanSchool}_${cleanClass}_${cleanName}_${personalPassword}_${organelleId}_${uniqueSuffix}`;
   
   const fullPath = `${COLLECTION_NAME}/${cleanSchool}/${cleanClass}/${individualFolderDocId}`;
   
