@@ -36,7 +36,7 @@ export const MetaphorFeed: React.FC<MetaphorFeedProps> = ({
     // Determine who is voting
     const voter = activeStudentName.trim();
     if (!voter) {
-      alert('상호 평가에 참여하려면 먼저 위에 위치한 "세포 교실 입장" 폼에서 학급과 이름을 등록해주셔야 합니다!');
+      alert('동료평가에 참여하려면 먼저 위에 위치한 "세포 교실 입장" 칸에서 학급과 이름을 등록해주셔야 합니다!');
       return;
     }
     
