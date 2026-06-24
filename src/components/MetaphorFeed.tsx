@@ -131,7 +131,7 @@ export const MetaphorFeed: React.FC<MetaphorFeedProps> = ({
             {activeStudentClass ? `[${activeStudentClass}]` : "우리 반"} 모두의 세포 배움터 (실시간 상호 평가 피드)
           </h2>
           <p className="text-xs text-[#7B827B] mt-1">
-            우리 반 친구들이 등록한 세포소기관 비유 글을 구경하고, 참신함과 과학적 설득력을 따져 5점 만점의 별점을 주세요!
+            우리 반 친구들이 등록한 세포소기관 비유 글을 꼼꼼히 읽어보고, 참신함과 과학적 설득력을 따져 5점 만점의 별점을 주세요!
           </p>
         </div>
 
