@@ -208,7 +208,7 @@ export const MetaphorFeed: React.FC<MetaphorFeedProps> = ({
         <div className="space-y-2">
           <label className="text-xs font-black text-[#123D2A] block flex items-center gap-1.5 font-sans">
             <Filter className="w-3.5 h-3.5 text-[#123D2A]" />
-            소기관별 모아보기 (동일 소기관 비유 비교 분석)
+            세포소기관별 비유 모아보기
           </label>
           <div className="flex flex-wrap gap-1.5" id="feed-organelle-tabs">
             <button
