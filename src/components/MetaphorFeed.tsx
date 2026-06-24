@@ -126,8 +126,8 @@ export const MetaphorFeed: React.FC<MetaphorFeedProps> = ({
       {/* Feed title */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b-2 border-[#D7D2C4]/50" id="feed-header-row">
         <div>
-          <h2 className="font-sans font-black text-[#123D2A] text-2xl tracking-tight flex items-center gap-2">
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#DDE8D6] text-[#123D2A] text-sm font-black break-keep">02</span>
+          <h2 className="font-sans font-black text-[#123D2A] text-2xl tracking-tight flex items-center gap-2 break-keep">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#DDE8D6] text-[#123D2A] text-sm font-black">02</span>
             {activeStudentClass ? `[${activeStudentClass}]` : "우리 반"} 모두의 세포 배움터 (실시간 상호 평가 피드)
           </h2>
           <p className="text-xs text-[#7B827B] mt-1 break-keep">
