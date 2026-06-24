@@ -2093,7 +2093,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                   ) : (
                     <div className="bg-white/80 p-12 text-center text-[#7B827B] font-medium rounded-xl border border-dashed border-[#D7D2C4] text-xs space-y-2">
                       <p className="font-bold text-[#123D2A]">아직 별점 평가 내역이 없습니다!</p>
-                      <p className="text-[10px] text-[#7B827B]">학습자가 '모두의 세포 배움터' 피드의 작품들에 별점 점수를 부여하면 실시간 연동되어 기록이 완성됩니다.</p>
+                      <p className="text-[10px] text-[#7B827B]">학생들이 '모두의 세포 배움터' 피드의 비유들에 별점 점수를 부여하면 실시간 연동되어 표시됩니다.</p>
                     </div>
                   )}
                 </div>
@@ -2101,8 +2101,8 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
             ) : (
               <div className="text-center py-20 text-[#7B827B] font-medium text-xs space-y-2">
                 <Users className="w-12 h-12 mx-auto text-[#D7D2C4] animate-pulse" />
-                <h4 className="font-black text-[#123D2A]">학생을 선택하여 평가 이력을 감사하십시오</h4>
-                <p className="text-[10px] text-[#7B827B] max-w-sm mx-auto font-bold">좌측 학생 명부 리스트에서 확인하려는 학생을 클릭하시면 해당 학년 피드백 참여 세부 전말을 들여다볼 수 있습니다.</p>
+                <h4 className="font-black text-[#123D2A]">학생을 선택하여 동료평가 활동을 확인하세요.</h4>
+                <p className="text-[10px] text-[#7B827B] max-w-sm mx-auto font-bold">왼쪽의 학생 명단에서 확인하려는 학생을 클릭하면 개별 피드백 참여 내역을 확인할 수 있습니다.</p>
               </div>
             )}
           </div>
@@ -2119,7 +2119,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                   {selectedSubDetail.studentClass || '1반'}
                 </span>
                 <h3 className="font-sans font-black text-info-blue-deep text-sm">
-                  {selectedSubDetail.studentName} 학생의 세포소기관 비유 전문
+                  {selectedSubDetail.studentName} 학생의 세포소기관 비유 제출물
                 </h3>
               </div>
               
