@@ -1476,7 +1476,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
             <button
               onClick={exportToCSV}
               className="px-3 py-1.5 bg-[#123D2A] hover:bg-[#1B5A3A] text-white text-xs font-black rounded-xl shadow-sm transition-all cursor-pointer flex items-center gap-1 text-[11px]"
-              title="CSV 파일로 기재 자료 보관하기"
+              title="CSV 파일로 활동 자료 저장하기"
             >
               <Download className="w-3.5 h-3.5" />
               CSV 다운로드
@@ -1643,7 +1643,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
           <button
             onClick={() => setDeleteSchoolModalOpen(true)}
             className="px-3 py-1.5 bg-rose-50 border border-rose-200 text-rose-700 hover:bg-rose-100 text-xs font-bold rounded-xl shadow-xs transition-all cursor-pointer flex items-center gap-1 text-[11px]"
-            title="본 기기에서 이 학급의 모든 개설 정보와 분리 디바이스 저장소 데이터를 영구히 초기화합니다"
+            title="본 기기에서 이 학급의 모든 개설 정보와 분리 디바이스 저장소 데이터를 완전히 초기화합니다"
           >
             <Trash2 className="w-3.5 h-3.5" />
             전체 삭제
@@ -1904,7 +1904,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                             </button>
                             <button
                               onClick={() => {
-                                if (confirm(`정말로 ${sub.studentName} 학생의 비유 제출 건을 개별 삭제하시겠습니까?`)) {
+                                if (confirm(`정말로 ${sub.studentName} 학생의 비유 제출물을 개별 삭제하시겠습니까?`)) {
                                   onDeleteSubmission(sub.id);
                                 }
                               }}
@@ -2102,7 +2102,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
               <div className="text-center py-20 text-[#7B827B] font-medium text-xs space-y-2">
                 <Users className="w-12 h-12 mx-auto text-[#D7D2C4] animate-pulse" />
                 <h4 className="font-black text-[#123D2A]">학생을 선택하여 동료평가 활동을 확인하세요.</h4>
-                <p className="text-[10px] text-[#7B827B] max-w-sm mx-auto font-bold">왼쪽의 학생 명단에서 확인하려는 학생을 클릭하면 개별 피드백 참여 내역을 확인할 수 있습니다.</p>
+                <p className="text-[10px] text-[#7B827B] max-w-sm mx-auto font-normal">왼쪽의 학생 명단에서 확인하려는 학생을 클릭하면 개별 피드백 참여 내역을 확인할 수 있습니다.</p>
               </div>
             )}
           </div>
