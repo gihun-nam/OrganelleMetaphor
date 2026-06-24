@@ -1262,7 +1262,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
           /* Login to existing school */
           <form onSubmit={handleTeacherLoginSubmit} className="space-y-4 text-left" id="teacher-login-form">
             <div className="space-y-1.5">
-              <label className="block text-xs font-normal text-[#123D2A] break-keep">🏫 소속 학교명 입력</label>
+              <label className="block text-xs font-bold text-[#123D2A] break-keep">🏫 소속 학교명 입력</label>
               <input
                 type="text"
                 required
@@ -1274,7 +1274,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
             </div>
 
             <div className="space-y-1.5 text-left">
-              <label className="block text-xs font-normal text-[#123D2A] break-keep">🔑 교수자 관리용 비밀번호 PIN</label>
+              <label className="block text-xs font-bold text-[#123D2A] break-keep">🔑 교수자 관리용 비밀번호 PIN</label>
               <input
                 type="password"
                 required
