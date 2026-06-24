@@ -1266,7 +1266,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
               <input
                 type="text"
                 required
-                placeholder="예: 서울고등학교, 서강고등학교"
+                placeholder="예: 서강대학교, 서울고등학교"
                 value={loginSchoolInput}
                 onChange={(e) => setLoginSchoolInput(e.target.value)}
                 className="w-full px-4 py-2.5 text-xs bg-white/85 border border-[#D7D2C4] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1B5A3A] font-normal"
