@@ -1459,9 +1459,9 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
             )}
           </div>
           
-          <h2 className="font-sans font-black text-[#123D2A] text-2xl tracking-tight flex items-center gap-2 mt-1.5">
+          <h2 className="font-sans font-black text-[#123D2A] text-2xl tracking-tight flex items-center gap-2 mt-1.5 break-keep">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#DDE8D6] text-[#123D2A] text-sm font-black">⚙️</span>
-            교사용 학급별 비유 활동 관리창
+            교수자용 학급별 비유 활동 관리창
           </h2>
           <p className="text-xs text-[#7B827B] mt-1 font-medium break-keep">
             각 학급 학생들의 실시간 생명 시스템 비유 활동 내역을 상세 조회하고, CSV파일로 다운로드하여 활동 평가 자료로 활용하세요.
