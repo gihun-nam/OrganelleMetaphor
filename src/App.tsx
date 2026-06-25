@@ -344,7 +344,7 @@ export default function App() {
       alert(`[${schoolData.schoolName} ${studentClassInput}] 배움터 교실에 성공적으로 입장하였습니다!\n아래 작성 공간에서 학생 이름을 입력해 비유 배정 활동을 수행해 보세요.`);
     } catch (err: any) {
       console.error(err);
-      setStudentLoginError(err.message || '⚠️ 입장 과정에서 일시적인 통신 수립 장애가 발견되었습니다. Firebase 설정 또는 인터넷 연결 상태를 점검해 보세요.');
+      setStudentLoginError(err.message || '⚠️ 입장 과정에서 일시적인 통신 장애가 발견되었습니다. Firebase 설정 또는 인터넷 연결 상태를 점검해 보세요.');
     }
   };
 
@@ -370,7 +370,7 @@ export default function App() {
 
   // Student global logout handler
   const handleStudentLogout = async () => {
-    if (confirm('현재 배움터 및 작성 세션에서 로그아웃하시겠습니까? 작성 중인 데이터는 안전하게 분리 드라이브에 보관됩니다.')) {
+    if (confirm('현재 배움터 및 작성 세션에서 로그아웃하시겠습니까? 작성 중인 데이터는 안전하게 드라이브에 보관됩니다.')) {
       await appLogout();
 
       setStudentName('');
@@ -562,7 +562,7 @@ export default function App() {
       alert(`[${activeSubscribedSchool}] 4개 학급에 총 12명의 예시 학생 활동 데이터와 2인 동료평가 별점이 원격 Firestore에 일괄 취합 및 동기화되었습니다!`);
     } catch (err: any) {
       console.error('[Load Mocks Error]:', err);
-      alert('예시 데이터를 불러오거나 국소 저장하지 못했습니다: ' + err.message);
+      alert('예시 데이터를 불러오거나 저장하지 못했습니다: ' + err.message);
     }
   };
 
@@ -908,9 +908,9 @@ export default function App() {
           <div className="max-w-md mx-auto glass-card p-6 md:p-8 space-y-6 my-8" id="global-school-login">
             <div className="text-center space-y-2 break-keep">
               <span className="text-4xl animate-bounce inline-block">🏫</span>
-              <h3 className="font-sans font-black text-[#123D2A] text-[22px] break-keep">생명과환경 세포소기관 배움터 로그인</h3>
+              <h3 className="font-sans font-black text-[#123D2A] text-lg sm:text-[22px] break-keep">생명과환경 세포소기관 배움터 로그인</h3>
               <p className="text-xs text-[#3E4540] font-normal leading-relaxed break-keep">
-                소속 학교명 또는 발급받은 6자리 입장코드를 입력하여 입장해 주십시오.<br />
+                소속 학교명과 비밀번호 또는 발급받은 6자리 입장코드를 입력하여 입장해 주십시오.<br />
                 <span className="text-[#3E4540]/60 font-normal text-[11px] break-keep">(아직 배움터 공간이 없다면 우측 상단의 [교사용 관리창]에서 먼저 신규 등록을 완료해 주세요!)</span>
               </p>
             </div>
@@ -929,7 +929,7 @@ export default function App() {
                 <input
                   type="text"
                   required
-                  placeholder="예: 서울고등학교 또는 6자리 코드"
+                  placeholder="예: 서강대학교 또는 6자리 코드"
                   value={schoolInput}
                   onChange={(e) => setSchoolInput(e.target.value)}
                   className="w-full px-4 py-3 bg-[#FFFCF4]/60 border-2 border-[#D7D2C4] rounded-xl text-[#3E4540] font-normal placeholder-[#7B827B]/60 text-xs focus:outline-none focus:ring-2 focus:ring-[#123D2A] focus:bg-white transition-all shadow-inner"
